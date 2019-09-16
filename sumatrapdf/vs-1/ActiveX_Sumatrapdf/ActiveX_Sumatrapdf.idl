@@ -1,0 +1,55 @@
+// ActiveX_Sumatrapdf.idl : ActiveX 控件项目的类型库源。
+
+// 此文件将由 MIDL 编译器工具处理以
+// 产生类型库(ActiveX_Sumatrapdf.tlb)，该类型库将成为
+// ActiveX_Sumatrapdf.ocx.
+
+#include <olectl.h>
+#include <idispids.h>
+
+[ uuid(F57E33F0-BC15-4EDA-8CAE-88780992D033), version(1.0),
+  control ]
+library ActiveX_SumatrapdfLib
+{
+	importlib(STDOLE_TLB);
+
+	//  CActiveX_SumatrapdfCtrl 的主调度接口
+	[ 
+		uuid(AA407211-5BA5-441A-BE0E-826FA6B48DF9)	
+	]
+	dispinterface _DActiveX_Sumatrapdf
+	{
+		properties:
+		methods:
+
+			[id(DISPID_ABOUTBOX)] void AboutBox();
+			[id(1)] LONG OpenFile(BSTR filename);
+			[id(2)] LONG SearchTextForWhole(BSTR word, LONG color);
+			[id(3)] LONG ClearWord(BSTR word);
+			[id(4)] LONG SearchText(BSTR text, LONG color, BYTE whole, BYTE cur, LONG page);
+	};
+
+	//  CActiveX_SumatrapdfCtrl 的事件调度接口
+
+	[ 
+		uuid(526A5B43-BEBC-43B9-A23D-AF1A2DEFF5BD)	
+	]
+	dispinterface _DActiveX_SumatrapdfEvents
+	{
+		properties:
+			//  事件接口没有任何属性
+
+		methods:
+	};
+
+	//  CActiveX_SumatrapdfCtrl 的类信息
+	[
+		uuid(1FFDCBF1-7BC9-4EDA-8834-8AD1FD722227)
+	]
+	coclass ActiveX_Sumatrapdf
+	{
+		[default] dispinterface _DActiveX_Sumatrapdf;
+		[default, source] dispinterface _DActiveX_SumatrapdfEvents;
+	};
+
+};

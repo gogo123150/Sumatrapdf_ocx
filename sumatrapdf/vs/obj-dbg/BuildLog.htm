@@ -1,0 +1,49 @@
+﻿生成启动时间为 2013/5/23 17:03:22。
+     1>项目“E:\project\sumatrapdf\vs\installer-vc2010.vcxproj”在节点 2 上(build 个目标)。
+     1>Build:
+         cd .. && .\scripts\build-release.bat -testinst
+         Setting environment for using Microsoft Visual Studio 2010 x86 tools.
+         Version: '2.4'
+         run_cmd_throw: 'nmake -f makefile.msvc CFG=dbg  PLATFORM=X86 all_sumatrapdf'
+         	cl.exe  /nologo /c /D "WIN32" /D "_WIN32" /WX /GR- /Zi /GS /Gy /GF /MP /arch:SSE2 /EHs-c- /W4 /wd4100 /wd4127 /wd4189 /wd4428 /MTd /Od /RTCs /RTCu /I.\src/utils/msvc /D "WINVER=0x0500" /D "_WIN32_WINNT=0x0500" /wd4800 /D "DEBUG" /D "_DEBUG" /I.\src/utils /Fo.\obj-dbg\applibs\ /Fd.\obj-dbg\vc80.pdb .\src\browserplugin\npPdfViewer.cpp 
+         npPdfViewer.cpp
+         	link.exe /DLL  /nologo /DEBUG /RELEASE /opt:ref /opt:icf /MACHINE:X86 .\obj-dbg\applibs\npPdfViewer.obj .\obj-dbg\applibs\npPdfViewer.res .\obj-dbg\utils.lib  advapi32.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib shell32.lib gdiplus.lib ole32.lib WindowsCodecs.lib  comctl32.lib Msimg32.lib Winspool.lib wininet.lib urlmon.lib  ole32.lib OleAut32.lib shlwapi.lib version.lib  WindowsCodecs.lib DbgHelp.lib /PDB:.\obj-dbg\npPdfViewer.pdb /OUT:.\obj-dbg\npPdfViewer.dll
+            正在创建库 .\obj-dbg\npPdfViewer.lib 和对象 .\obj-dbg\npPdfViewer.exp
+         	cl.exe  /nologo /c /D "WIN32" /D "_WIN32" /WX /GR- /Zi /GS /Gy /GF /MP /arch:SSE2 /EHs-c- /W4 /wd4100 /wd4127 /wd4189 /wd4428 /MTd /Od /RTCs /RTCu /I.\src/utils/msvc /D "WINVER=0x0500" /D "_WIN32_WINNT=0x0500" /wd4800 /D "DEBUG" /D "_DEBUG"  /I.\src/utils /I.\src/mui /I.\ext\zlib /I.\ext\zlib/minizip /I.\ext/lzma/C   /I.\src /I.\mupdf\fitz /I.\mupdf\pdf  /I.\mupdf\xps /I.\ext/synctex /I.\ext/libdjvu /I.\ext/CHMLib/src /Fo.\obj-dbg\sumatrapdf\ /Fd.\obj-dbg\vc80.pdb .\src\EngineDump.cpp 
+         EngineDump.cpp
+         	cl.exe  /nologo /c /D "WIN32" /D "_WIN32" /WX /GR- /Zi /GS /Gy /GF /MP /arch:SSE2 /EHs-c- /W4 /wd4100 /wd4127 /wd4189 /wd4428 /MTd /Od /RTCs /RTCu /I.\src/utils/msvc /D "WINVER=0x0500" /D "_WIN32_WINNT=0x0500" /wd4800 /D "DEBUG" /D "_DEBUG"  /I.\src/utils /I.\src/mui /I.\ext\zlib /I.\ext\zlib/minizip /I.\ext/lzma/C /Fo.\obj-dbg\mui\ /Fd.\obj-dbg\vc80.pdb .\src\mui\MiniMui.cpp 
+         MiniMui.cpp
+         	link.exe  /nologo /DEBUG /RELEASE /opt:ref /opt:icf /MACHINE:X86 .\obj-dbg\sumatrapdf\EngineDump.obj .\obj-dbg\engines.lib .\obj-dbg\libmupdfs.lib .\obj-dbg\utils.lib .\obj-dbg\mui\MiniMui.obj  advapi32.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib shell32.lib gdiplus.lib ole32.lib WindowsCodecs.lib  comctl32.lib Msimg32.lib Winspool.lib wininet.lib urlmon.lib  ole32.lib OleAut32.lib shlwapi.lib version.lib  WindowsCodecs.lib DbgHelp.lib /PDB:.\obj-dbg\EngineDump.pdb /OUT:.\obj-dbg\EngineDump.exe /SUBSYSTEM:CONSOLE
+         
+         
+         Microsoft (R) 程序维护实用工具 10.00.30319.01 版
+         版权所有(C) Microsoft Corporation。保留所有权利。
+         
+         
+         run_cmd_throw: 'E:\project\sumatrapdf\bin\lzma.exe e obj-dbg\SumatraPDF-no-MuPDF.exe obj-dbg\SumatraPDF-no-MuPDF.exe.lzma -f86'
+         run_cmd_throw: 'E:\project\sumatrapdf\bin\lzma.exe e obj-dbg\DroidSansFallback.ttf obj-dbg\DroidSansFallback.ttf.lzma -f86'
+         run_cmd_throw: 'E:\project\sumatrapdf\bin\lzma.exe e obj-dbg\libmupdf.dll obj-dbg\libmupdf.dll.lzma -f86'
+         run_cmd_throw: 'E:\project\sumatrapdf\bin\lzma.exe e obj-dbg\npPdfViewer.dll obj-dbg\npPdfViewer.dll.lzma -f86'
+         run_cmd_throw: 'E:\project\sumatrapdf\bin\lzma.exe e obj-dbg\PdfFilter.dll obj-dbg\PdfFilter.dll.lzma -f86'
+         run_cmd_throw: 'E:\project\sumatrapdf\bin\lzma.exe e obj-dbg\PdfPreview.dll obj-dbg\PdfPreview.dll.lzma -f86'
+         run_cmd_throw: 'E:\project\sumatrapdf\bin\lzma.exe e obj-dbg\uninstall.exe obj-dbg\uninstall.exe.lzma -f86'
+         Created archive: obj-dbg\InstallerData.dat
+         run_cmd_throw: 'nmake -f makefile.msvc Installer CFG=dbg PLATFORM=X86 '
+         	rc /r /fo.\obj-dbg\sumatrapdf\Installer.res  /D "DEBUG" /D "_DEBUG" /D "INSTALL_PAYLOAD_ZIP=..\..\.\obj-dbg\InstallerData.dat" .\src\installer\Installer.rc
+         Microsoft (R) Windows (R) Resource Compiler Version 6.1.7600.16385
+         
+         Copyright (C) Microsoft Corporation.  All rights reserved.
+         
+         
+         	link.exe  /nologo /DEBUG /RELEASE /opt:ref /opt:icf /MACHINE:X86 .\obj-dbg\sumatrapdf\Installer.obj .\obj-dbg\sumatrapdf\Installer.res .\obj-dbg\sumatrapdf\CrashHandler.obj .\obj-dbg\utils.lib .\obj-dbg\utils\LzmaSimpleArchive.obj .\obj-dbg\lzma\LzmaDec.obj .\obj-dbg\lzma\Bra86.obj .\obj-dbg\zlib\adler32.obj .\obj-dbg\zlib\compress.obj .\obj-dbg\zlib\crc32.obj .\obj-dbg\zlib\deflate.obj .\obj-dbg\zlib\inffast.obj .\obj-dbg\zlib\inflate.obj .\obj-dbg\zlib\inftrees.obj .\obj-dbg\zlib\trees.obj .\obj-dbg\zlib\zutil.obj .\obj-dbg\zlib\gzlib.obj .\obj-dbg\zlib\gzread.obj .\obj-dbg\zlib\gzwrite.obj .\obj-dbg\zlib\gzclose.obj .\obj-dbg\zlib\inftree9.obj .\obj-dbg\sumatrapdf\Translations.obj .\obj-dbg\sumatrapdf\Trans_installer_txt.obj  advapi32.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib shell32.lib gdiplus.lib ole32.lib WindowsCodecs.lib  comctl32.lib Msimg32.lib Winspool.lib wininet.lib urlmon.lib  ole32.lib OleAut32.lib shlwapi.lib version.lib  WindowsCodecs.lib DbgHelp.lib /PDB:.\obj-dbg\Installer.pdb /OUT:.\obj-dbg\Installer.exe
+         
+         
+         Microsoft (R) 程序维护实用工具 10.00.30319.01 版
+         版权所有(C) Microsoft Corporation。保留所有权利。
+         
+         
+     1>已完成生成项目“E:\project\sumatrapdf\vs\installer-vc2010.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:18.11

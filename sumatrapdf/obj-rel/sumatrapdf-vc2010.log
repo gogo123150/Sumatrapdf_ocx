@@ -1,0 +1,29 @@
+﻿生成启动时间为 2013/6/14 15:16:20。
+     1>项目“E:\project\sumatrapdf\vs\sumatrapdf-vc2010.vcxproj”在节点 2 上(build 个目标)。
+     1>Build:
+         nmake -f ..\makefile.msvc BASEDIR=.. CFG=rel  NASM=..\bin\nasm.exe
+         
+         Microsoft (R) 程序维护实用工具 10.00.30319.01 版
+         版权所有(C) Microsoft Corporation。保留所有权利。
+         
+         	rc /r /fo..\obj-rel\sumatrapdf\sumatrapdf.res  ..\src\SumatraPDF.rc
+         Microsoft (R) Windows (R) Resource Compiler Version 6.1.7600.16385
+         
+         Copyright (C) Microsoft Corporation.  All rights reserved.
+         
+         
+         	echo SUMATRA_CFLAGS ===============================
+         SUMATRA_CFLAGS ===============================
+         	echo  /nologo /c /D "WIN32" /D "_WIN32" /WX /GR- /Zi /GS /Gy /GF /MP /arch:SSE2 /EHs-c- /W4 /wd4100 /wd4127 /wd4189 /wd4428 /O2 /D "NDEBUG" /I..\src/utils/msvc /GL /I..\src/utils/msvc /D "WINVER=0x0500" /D "_WIN32_WINNT=0x0500" /wd4800  /I..\src/utils /I..\src/mui /I..\ext\zlib /I..\ext\zlib/minizip /I..\ext/lzma/C   /I..\src /I..\mupdf\fitz /I..\mupdf\pdf  /I..\mupdf\xps /I..\ext/synctex /I..\ext/libdjvu /I..\ext/CHMLib/src
+         /nologo /c /D "WIN32" /D "_WIN32" /WX /GR- /Zi /GS /Gy /GF /MP /arch:SSE2 /EHs-c- /W4 /wd4100 /wd4127 /wd4189 /wd4428 /O2 /D "NDEBUG" /I..\src/utils/msvc /GL /I..\src/utils/msvc /D "WINVER=0x0500" /D "_WIN32_WINNT=0x0500" /wd4800 /I..\src/utils /I..\src/mui /I..\ext\zlib /I..\ext\zlib/minizip /I..\ext/lzma/C /I..\src /I..\mupdf\fitz /I..\mupdf\pdf /I..\mupdf\xps /I..\ext/synctex /I..\ext/libdjvu /I..\ext/CHMLib/src
+         	link.exe  /nologo /DEBUG /RELEASE /opt:ref /opt:icf /MACHINE:X86 /LTCG /DYNAMICBASE /FIXED:NO ..\obj-rel\sumatrapdf\SumatraPDF.obj ..\obj-rel\sumatrapdf\sumatrapdf.res ..\obj-rel\sumatra.lib ..\obj-rel\engines.lib ..\obj-rel\utils.lib ..\obj-rel\mui.lib ..\obj-rel\ext\synctex_parser.obj ..\obj-rel\ext\synctex_parser_utils.obj ..\obj-rel\utils\LzmaSimpleArchive.obj ..\obj-rel\lzma\LzmaDec.obj ..\obj-rel\lzma\Bra86.obj ..\obj-rel\libmupdfs.lib  advapi32.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib shell32.lib gdiplus.lib ole32.lib WindowsCodecs.lib  comctl32.lib Msimg32.lib Winspool.lib wininet.lib urlmon.lib  ole32.lib OleAut32.lib shlwapi.lib version.lib  WindowsCodecs.lib DbgHelp.lib /PDB:..\obj-rel\SumatraPDF.pdb /OUT:..\obj-rel\SumatraPDF.exe
+         正在生成代码
+         已完成代码的生成
+         	link.exe  /nologo /DEBUG /RELEASE /opt:ref /opt:icf /MACHINE:X86 /LTCG /DYNAMICBASE /FIXED:NO ..\obj-rel\sumatrapdf\SumatraPDF.obj ..\obj-rel\sumatrapdf\sumatrapdf.res ..\obj-rel\sumatra.lib ..\obj-rel\engines.lib ..\obj-rel\utils.lib ..\obj-rel\mui.lib ..\obj-rel\ext\synctex_parser.obj ..\obj-rel\ext\synctex_parser_utils.obj ..\obj-rel\utils\LzmaSimpleArchive.obj ..\obj-rel\lzma\LzmaDec.obj ..\obj-rel\lzma\Bra86.obj ..\obj-rel\sumatrapdf\MuPDF_Exports.obj  advapi32.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib shell32.lib gdiplus.lib ole32.lib WindowsCodecs.lib  comctl32.lib Msimg32.lib Winspool.lib wininet.lib urlmon.lib  ole32.lib OleAut32.lib shlwapi.lib version.lib  WindowsCodecs.lib DbgHelp.lib /PDB:..\obj-rel\SumatraPDF-no-MuPDF.pdb /OUT:..\obj-rel\SumatraPDF-no-MuPDF.exe ..\obj-rel\libmupdf.lib
+         正在生成代码
+         已完成代码的生成
+     1>已完成生成项目“E:\project\sumatrapdf\vs\sumatrapdf-vc2010.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:39.17

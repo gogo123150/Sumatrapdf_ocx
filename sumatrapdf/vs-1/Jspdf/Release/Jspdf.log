@@ -1,0 +1,82 @@
+﻿生成启动时间为 2013/6/14 15:16:59。
+     1>项目“E:\project\sumatrapdf\vs-1\Jspdf\Jspdf.vcxproj”在节点 3 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Release\Jspdf.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         所有输出均为最新。
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\..\src /I..\..\src\utils /I../../src/utils/msvc /I..\..\src\mui /I..\..\ext\synctex /I../../ext/zlib /I../../ext/zlib/minizip /I../../ext/CHMLib/src/ /I../../ext/lzma/C /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\src\EbookControls.cpp ..\..\src\EbookWindow.cpp ..\..\src\Favorites.cpp ..\..\src\Menu.cpp ..\..\src\Search.cpp ..\..\src\SumatraAbout.cpp ..\..\src\SumatraAbout2.cpp ..\..\src\SumatraDialogs.cpp ..\..\src\SumatraPDF.cpp ..\..\src\SumatraProperties.cpp ..\..\src\TableOfContents.cpp ..\..\src\Toolbar.cpp ..\..\src\WindowInfo.cpp /wd4100 /wd4127 /wd4189 /wd4428 /wd4800 /D "WINVER=0x0500" /D "_WIN32_WINNT=0x0500" 
+         EbookControls.cpp
+         EbookWindow.cpp
+         Favorites.cpp
+         Menu.cpp
+         Search.cpp
+         SumatraAbout.cpp
+         SumatraAbout2.cpp
+         SumatraDialogs.cpp
+         SumatraPDF.cpp
+         SumatraProperties.cpp
+         TableOfContents.cpp
+         Toolbar.cpp
+         WindowInfo.cpp
+       ResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /nologo /fo"Release\SumatraPDF.res" ..\..\src\SumatraPDF.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\project\sumatrapdf\vs\Release\Jspdf.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"..\..\obj-rls" advapi32.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib shell32.lib gdiplus.lib ole32.lib WindowsCodecs.lib comctl32.lib Msimg32.lib Winspool.lib wininet.lib urlmon.lib OleAut32.lib shlwapi.lib version.lib DbgHelp.lib engines.lib libmupdfs.lib mui.lib utils.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:libcmt.lib /MANIFEST /ManifestFile:"Release\Jspdf.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\project\sumatrapdf\vs\Release\Jspdf.pdb" /SUBSYSTEM:WINDOWS /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\project\sumatrapdf\vs\Release\Jspdf.lib" /MACHINE:X86 Release\SumatraPDF.res
+         Release\Bra86.obj
+         Release\LzmaDec.obj
+         Release\synctex_parser.obj
+         Release\synctex_parser_utils.obj
+         Release\AppPrefs.obj
+         Release\AppTools.obj
+         Release\ChmDoc.obj
+         Release\CrashHandler.obj
+         Release\DisplayModel.obj
+         Release\EbookController.obj
+         Release\EbookControls.obj
+         Release\EbookWindow.obj
+         Release\ExternalPdfViewer.obj
+         Release\Favorites.obj
+         Release\Menu.obj
+         Release\MuiEbookPageDef.obj
+         Release\Notifications.obj
+         Release\ParseCommandLine.obj
+         Release\PdfSync.obj
+         Release\Print.obj
+         Release\Regress.obj
+         Release\RenderCache.obj
+         Release\Search.obj
+         Release\Selection.obj
+         Release\StressTesting.obj
+         Release\SumatraAbout.obj
+         Release\SumatraAbout2.obj
+         Release\SumatraDialogs.obj
+         Release\SumatraPDF.obj
+         Release\SumatraProperties.obj
+         Release\TableOfContents.obj
+         Release\Tester.obj
+         Release\TextSearch.obj
+         Release\TextSelection.obj
+         Release\Toolbar.obj
+         Release\Translations.obj
+         Release\Trans_sumatra_txt.obj
+         Release\DocumentProvider.obj
+         Release\PageProvider.obj
+         Release\Provider.obj
+         Release\StartPageProvider.obj
+         Release\TextRange.obj
+         Release\UnitTests.obj
+         Release\LzmaSimpleArchive.obj
+         Release\WindowInfo.obj
+         正在生成代码
+         已完成代码的生成
+         Jspdf.vcxproj -> E:\project\sumatrapdf\vs\Release\Jspdf.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"E:\project\sumatrapdf\vs\Release\Jspdf.exe;#1" /manifest Release\Jspdf.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         正在删除文件“Release\Jspdf.unsuccessfulbuild”。
+         正在对“Release\Jspdf.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\project\sumatrapdf\vs-1\Jspdf\Jspdf.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:25.77

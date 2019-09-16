@@ -1,0 +1,433 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="LZSA">
+      <UniqueIdentifier>{b9c2233c-6bc7-48b0-b091-3de2d84850de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LZSA\LZMA">
+      <UniqueIdentifier>{76e27055-62ce-40e4-8622-b60e3a9ffc83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SYNCTEX">
+      <UniqueIdentifier>{759e9ed9-63e4-4cd9-9dd5-4ed900507f50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MAIN_UI">
+      <UniqueIdentifier>{b2cab473-13ee-44ff-a8b8-540183ccf057}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MAIN_UI\UIA">
+      <UniqueIdentifier>{a8145209-3b15-4381-b125-302ac3291c1c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="ActiveX_Sumatrapdf.def">
+      <Filter>源文件</Filter>
+    </None>
+    <None Include="ActiveX_Sumatrapdf.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="ActiveX_SumatrapdfCtrl.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\ext\synctex\synctex_parser_readme.txt">
+      <Filter>SYNCTEX</Filter>
+    </None>
+    <None Include="..\..\ext\synctex\synctex_parser_version.txt">
+      <Filter>SYNCTEX</Filter>
+    </None>
+    <None Include="..\..\src\EbookWinDesc.txt">
+      <Filter>MAIN_UI</Filter>
+    </None>
+    <None Include="toolbar_12.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\src\toolbar_12.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\src\SumatraPDF-smaller.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\src\PdfDoc.ico">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\src\toolbar_11.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\src\reloading.bmp">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="..\..\src\dragcursor.cur">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ActiveX_Sumatrapdf.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ActiveX_SumatrapdfCtrl.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ActiveX_SumatrapdfPropPage.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\utils\LzmaSimpleArchive.cpp">
+      <Filter>LZSA</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ext\lzma\C\Bra86.c">
+      <Filter>LZSA\LZMA</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ext\lzma\C\LzmaDec.c">
+      <Filter>LZSA\LZMA</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ext\synctex\synctex_parser.c">
+      <Filter>SYNCTEX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ext\synctex\synctex_parser_utils.c">
+      <Filter>SYNCTEX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\AppPrefs.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\AppTools.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ChmDoc.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\CrashHandler.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\DisplayModel.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\EbookController.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\EbookControls.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\EbookWindow.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ExternalPdfViewer.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Favorites.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Menu.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\MuiEbookPageDef.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Notifications.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\ParseCommandLine.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\PdfSync.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Print.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\regress\Regress.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\RenderCache.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Selection.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\StressTesting.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\SumatraAbout.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\SumatraAbout2.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\SumatraDialogs.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\SumatraProperties.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\TableOfContents.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Tester.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\TextSearch.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\TextSelection.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Translations.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Trans_sumatra_txt.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\UnitTests.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\WindowInfo.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\uia\DocumentProvider.cpp">
+      <Filter>MAIN_UI\UIA</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\uia\PageProvider.cpp">
+      <Filter>MAIN_UI\UIA</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\uia\Provider.cpp">
+      <Filter>MAIN_UI\UIA</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\uia\StartPageProvider.cpp">
+      <Filter>MAIN_UI\UIA</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\uia\TextRange.cpp">
+      <Filter>MAIN_UI\UIA</Filter>
+    </ClCompile>
+    <ClCompile Include="SumatraPDF2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Search2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TextSearch2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TextSelection2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Selection2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Toolbar2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\Toolbar.cpp">
+      <Filter>MAIN_UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ActiveX_Sumatrapdf.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ActiveX_SumatrapdfCtrl.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ActiveX_SumatrapdfPropPage.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\LzmaSimpleArchive.h">
+      <Filter>LZSA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ext\lzma\C\LzmaDec.h">
+      <Filter>LZSA\LZMA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ext\synctex\synctex_parser.h">
+      <Filter>SYNCTEX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ext\synctex\synctex_parser_local.h">
+      <Filter>SYNCTEX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ext\synctex\synctex_parser_utils.h">
+      <Filter>SYNCTEX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\AppPrefs.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\AppTools.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\BaseEngine.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\CrashHandler.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\DisplayModel.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Doc.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\EbookController.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\EbookControls.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\EbookWindow.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ExternalPdfViewer.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Favorites.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Menu.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\MuiEbookPageDef.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Notifications.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\ParseCommandLine.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\PdfSync.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Print.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\RenderCache.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Search.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Selection.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\StressTesting.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\SumatraAbout.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\SumatraAbout2.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\SumatraDialogs.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\SumatraPDF.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\SumatraProperties.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\TableOfContents.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\TextSearch.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\TextSelection.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Toolbar.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Translations.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\Version.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\WindowInfo.h">
+      <Filter>MAIN_UI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\uia\Constants.h">
+      <Filter>MAIN_UI\UIA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\uia\DocumentProvider.h">
+      <Filter>MAIN_UI\UIA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\uia\PageProvider.h">
+      <Filter>MAIN_UI\UIA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\uia\Provider.h">
+      <Filter>MAIN_UI\UIA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\uia\StartPageProvider.h">
+      <Filter>MAIN_UI\UIA</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\uia\TextRange.h">
+      <Filter>MAIN_UI\UIA</Filter>
+    </ClInclude>
+    <ClInclude Include="SumatraPDF2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\utils\DbgHelpDyn.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Search2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TextSearch2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TextSelection2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Selection2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DisplayModel2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowInfo2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Toolbar2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ActiveX_Sumatrapdf.rc">
+      <Filter>资源文件</Filter>
+    </ResourceCompile>
+    <ResourceCompile Include="..\..\src\SumatraPDF.rc">
+      <Filter>MAIN_UI</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="ActiveX_Sumatrapdf.idl">
+      <Filter>源文件</Filter>
+    </Midl>
+  </ItemGroup>
+</Project>

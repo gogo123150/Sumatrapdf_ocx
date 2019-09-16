@@ -1,0 +1,26 @@
+﻿生成启动时间为 2013/6/14 16:58:47。
+     1>项目“E:\捷成项目\新闻出版总署\sumatrapdf_backup_6_14\sumatrapdf\vs-1\ActiveX_Sumatrapdf\ActiveX_Sumatrapdf.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Release\ActiveX_Sumatrapdf.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       Midl:
+         所有输出均为最新。
+       ClCompile:
+         所有输出均为最新。
+         所有输出均为最新。
+         所有输出均为最新。
+       ResourceCompile:
+         所有输出均为最新。
+         所有输出均为最新。
+       Link:
+         所有输出均为最新。
+         ActiveX_Sumatrapdf.vcxproj -> E:\捷成项目\新闻出版总署\sumatrapdf_backup_6_14\sumatrapdf\vs\Release\ActiveX_Sumatrapdf.ocx
+       Manifest:
+         所有输出均为最新。
+       FinalizeBuildStatus:
+         正在删除文件“Release\ActiveX_Sumatrapdf.unsuccessfulbuild”。
+         正在对“Release\ActiveX_Sumatrapdf.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\捷成项目\新闻出版总署\sumatrapdf_backup_6_14\sumatrapdf\vs-1\ActiveX_Sumatrapdf\ActiveX_Sumatrapdf.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.21
