@@ -416,6 +416,9 @@
     <ClInclude Include="Menu2.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ActiveX_Sumatrapdf.rc">

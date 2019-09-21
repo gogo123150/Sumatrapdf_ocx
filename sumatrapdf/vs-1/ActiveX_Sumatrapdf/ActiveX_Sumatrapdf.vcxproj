@@ -227,6 +227,7 @@
     <ClInclude Include="..\..\src\PdfSync.h" />
     <ClInclude Include="..\..\src\Print.h" />
     <ClInclude Include="..\..\src\RenderCache.h" />
+    <ClInclude Include="..\..\src\resource.h" />
     <ClInclude Include="..\..\src\Search.h" />
     <ClInclude Include="..\..\src\Selection.h" />
     <ClInclude Include="..\..\src\StressTesting.h" />

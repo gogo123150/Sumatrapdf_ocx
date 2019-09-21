@@ -164,6 +164,6 @@ void SignPdf(WindowInfo& win,int page,int x,int y, LPCWSTR sourcePdf, LPCWSTR de
 char* encode(const wchar_t* wstr, unsigned int codePage);
 wchar_t* decode(const char* encodedStr, unsigned int codePage);
 int drawSignImage(WindowInfo& win, HDC hdcCanvas, HDC hdc);
-
+void GetCertData(WindowInfo* win);
 
 #endif

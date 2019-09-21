@@ -4,4 +4,7 @@
     <LocalDebuggerCommand>D:\Program Files (x86)\Microsoft Visual Studio\Common\Tools\tstcon32.exe</LocalDebuggerCommand>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
+  <PropertyGroup>
+    <ShowAllFiles>false</ShowAllFiles>
+  </PropertyGroup>
 </Project>

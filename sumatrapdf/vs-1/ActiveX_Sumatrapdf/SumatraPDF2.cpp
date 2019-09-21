@@ -2365,67 +2365,6 @@ static void OnMouseMove(WindowInfo& win, int x, int y, WPARAM flags)
 
     win.dragPrevPos = PointI(x, y);
 }
-
-static void OnMouseLeftButtonDown(WindowInfo& win, int x, int y, WPARAM key)
-{
-    //lf("Left button clicked on %d %d", x, y);
-    if (win.IsAboutWindow())
-        // remember a link under so that on mouse up we only activate
-        // link if mouse up is on the same link as mouse down
-        win.url = GetStaticLink(win.staticLinks, x, y);
-    if (!win.IsDocLoaded())
-        return;
-	if (win.sign > 0)
-	{
-		win.sign = 0;
-		win.dm->bSign = false;
-		ClipCursor(&m_oldRect);    // 恢复鼠标
-		ReleaseCapture();
-		PointI pt(PointI(x, y));
-		int page = win.dm->GetPageNoByPoint(pt);
-		PointD pos(0, 0);
-		pos = win.dm->CvtFromScreen(pt, page);
-		// 找到当前点相对于PDF左上角的坐标
-		int dPosX = (int)pos.x;
-		int dPosY = (int)pos.y;
-		//int x = ptPage.x;
-		//int y = ptPage.y;
-		//(WindowInfo& win, int page, int x, int y, LPCWSTR sourcePdf, LPCWSTR destPdf, LPCWSTR jpg, LPCWSTR owner, LPCWSTR issuer)
-		//C:\\Documents and Settings\\kun\\桌面\\评标报告.pdf  C:\\Documents and Settings\\kun\\桌面\\123.pdf c:\\1.jpg kun I am auth 测试数据 甘肃成兴信息科技有限公司CA 210 273 1 0
-		//SignPdf(win, page - 1, dPosX, dPosY, win.loadedFilePath, L"d:\\2.pdf", L"c:\\1.jpg", L"测试数据", L"甘肃成兴信息科技有限公司CA");
-	}
-    if (MA_DRAGGING_RIGHT == win.mouseAction)
-        return;
-
-    if (MA_SCROLLING == win.mouseAction) {
-        win.mouseAction = MA_IDLE;
-        return;
-    }
-    assert(win.mouseAction == MA_IDLE);
-    assert(win.dm);
-
-    SetFocus(win.hwndFrame);
-
-    assert(!win.linkOnLastButtonDown);
-    PageElement *pageEl = win.dm->GetElementAtPos(PointI(x, y));
-    if (pageEl && pageEl->GetType() == Element_Link)
-        win.linkOnLastButtonDown = pageEl;
-    else
-        delete pageEl;
-    win.dragStartPending = true;
-    win.dragStart = PointI(x, y);
-
-    // - without modifiers, clicking on text starts a text selection
-    //   and clicking somewhere else starts a drag
-    // - pressing Shift forces dragging
-    // - pressing Ctrl forces a rectangular selection
-    // - pressing Ctrl+Shift forces text selection
-    // - not having CopySelection permission forces dragging
-    if (!HasPermission(Perm_CopySelection) || ((key & MK_SHIFT) || !win.dm->IsOverText(PointI(x, y))) && !(key & MK_CONTROL))
-        OnDraggingStart(win, x, y);
-    else
-        OnSelectionStart(&win, x, y, key);
-}
 static char* encode(const wchar_t* wstr, unsigned int codePage)
 {
 	//int sizeNeeded = WideCharToMultiByte(codePage, 0, wstr, -1, NULL, 0, NULL, NULL);
@@ -2475,63 +2414,157 @@ static LPCWSTR decode(const char* encodedStr, unsigned int codePage)
 	return wszClassName;
 }
 static void SignPdf(WindowInfo& win, int page, int x, int y, LPCWSTR sourcePdf, LPCWSTR destPdf, LPCWSTR jpg, LPCWSTR owner, LPCWSTR issuer) {
-	
-	
-	LPCWSTR file_path = L"C:\\Program Files\\TinySigner.exe";
-	
-	//if (!myfile.IsFileExist(file_path))
+
+	HANDLE hRead, hWrite;
+	SECURITY_ATTRIBUTES sa;
+	sa.nLength = sizeof(SECURITY_ATTRIBUTES);
+	sa.lpSecurityDescriptor = NULL; //使用系统默认的安全描述符    
+	sa.bInheritHandle = TRUE; //创建的进程继承句柄
+
+	if (!CreatePipe(&hRead, &hWrite, &sa, 0)) //创建匿名管道
+	{
+		MessageBox(NULL,L"CreatePipe Failed!", L"提示", MB_OK | MB_ICONWARNING);
+		return;
+	}
+
+	STARTUPINFO si;
+	PROCESS_INFORMATION pi;
+
+	ZeroMemory(&si, sizeof(STARTUPINFO));
+	si.cb = sizeof(STARTUPINFO);
+	GetStartupInfo(&si);
+	si.hStdError = hWrite;
+	si.hStdOutput = hWrite;    //新创建进程的标准输出连在写管道一端
+	si.wShowWindow = SW_HIDE; //隐藏窗口    
+	si.dwFlags = STARTF_USESHOWWINDOW | STARTF_USESTDHANDLES;
+	char line[] = " /all";
+	//TCHAR cmdline[] = TEXT(" /all");
+
+	if (!CreateProcess(TEXT("c://windows//system32//ipconfig.exe"), (LPWSTR)line, NULL, NULL, TRUE, NULL, NULL, NULL, &si, &pi)) //创建子进程
+	{
+		MessageBox(NULL,L"CreateProcess Failed!", L"提示", MB_OK | MB_ICONWARNING);
+		return;
+	}
+	CloseHandle(hWrite); //关闭管道句柄
+
+	char buffer[4096] = { 0 };
+	DWORD bytesRead;
+
+	while (true)
+	{
+		if (ReadFile(hRead, buffer, 4095, &bytesRead, NULL) == NULL) //读取管道
+			break;
+
+		Sleep(100);
+	}
+	CloseHandle(hRead);
+	//LPCWSTR file_path = L"C:\\Program Files\\TinySigner.exe";
+
+
+	//SHELLEXECUTEINFO ShExecInfo;
+	//char paramters[1000] = { 0 };
+	////LPCWSTR pdf = win.loadedFilePath;
+	//char* pdf = encode(sourcePdf, CP_UTF8);
+	//string pdf_t = pdf;
+	//pdf_t = "\"" + pdf_t + "\"";
+	//char* dest = encode(destPdf, CP_UTF8);
+	//string dest_t = dest;
+	//dest_t = "\"" + dest_t + "\"";
+	//char* sign_img = encode(jpg, CP_UTF8);
+	//string sign_t = sign_img;
+	//sign_t = "\"" + sign_t + "\"";
+	//char* owner_a = encode(owner, CP_UTF8);
+	//string owner_t = owner_a;
+	//owner_t = "\"" + owner_t + "\"";
+	//char* issuer_a = encode(issuer, CP_UTF8);
+	//string issuser_t = issuer_a;
+	//issuser_t = "\"" + issuser_t + "\"";
+	//sprintf_s(paramters, "%s %s %s %s %s %s %s %d %d %d %d", pdf_t.c_str(), dest_t.c_str(), sign_t.c_str(), "kun", "auth", owner_t.c_str(), issuser_t.c_str(), x, y, page, 1);
+	//ShExecInfo.cbSize = sizeof(SHELLEXECUTEINFO);
+	//ShExecInfo.fMask = SEE_MASK_NOCLOSEPROCESS;
+	//ShExecInfo.hwnd = NULL;
+	//ShExecInfo.lpVerb = NULL;
+	//ShExecInfo.lpFile = file_path;
+	//
+	//ShExecInfo.lpParameters = decode(paramters, CP_UTF8);//传出去的参数
+	////ShExecInfo.lpParameters = L"C:\\1.pdf  d:\\123.pdf c:\\1.jpg kun auth 测试数据 甘肃成兴信息科技有限公司CA 210 273 1 0";
+	//ShExecInfo.lpDirectory = NULL;
+	//ShExecInfo.nShow = SW_SHOW;
+	//ShExecInfo.hInstApp = NULL;
+
+	//BOOL b_ret = ShellExecuteEx(&ShExecInfo);
+	//if (b_ret)
 	//{
-	//	return 1;
+	//	//等待调用启动的exe关闭，此处要设置成ShExecInfo.fMask = SEE_MASK_NOCLOSEPROCESS;
+	//	WaitForSingleObject(ShExecInfo.hProcess, INFINITE);
 	//}
-
-	//LPCWSTR lp_file_path = mystring.StringToLPCWSTR(file_path);
-	
-	SHELLEXECUTEINFO ShExecInfo;
-	char paramters[1000] = { 0 };
-	//LPCWSTR pdf = win.loadedFilePath;
-	char* pdf = encode(sourcePdf, CP_UTF8);	
-	string pdf_t = pdf;
-	pdf_t = "\"" + pdf_t + "\"";
-	char* dest = encode(destPdf, CP_UTF8);
-	string dest_t = dest;
-	dest_t = "\"" + dest_t + "\"";
-	char* sign_img = encode(jpg, CP_UTF8);
-	string sign_t = sign_img;
-	sign_t = "\"" + sign_t + "\"";
-	char* owner_a = encode(owner, CP_UTF8);
-	string owner_t = owner_a;
-	owner_t = "\"" + owner_t + "\"";
-	char* issuer_a = encode(issuer, CP_UTF8);
-	string issuser_t = issuer_a;
-	issuser_t = "\"" + issuser_t + "\"";
-	sprintf_s(paramters, "%s %s %s %s %s %s %s %d %d %d %d", pdf_t.c_str(), dest_t.c_str(),sign_t.c_str(),"kun","auth",owner_t.c_str(),issuser_t.c_str(),x,y,page,1);
-	ShExecInfo.cbSize = sizeof(SHELLEXECUTEINFO);
-	ShExecInfo.fMask = SEE_MASK_NOCLOSEPROCESS;
-	ShExecInfo.hwnd = NULL;
-	ShExecInfo.lpVerb = NULL;
-	ShExecInfo.lpFile = file_path;
-	ShExecInfo.lpParameters = decode(paramters, CP_UTF8);//传出去的参数
-	//ShExecInfo.lpParameters = L"C:\\1.pdf  d:\\123.pdf c:\\1.jpg kun auth 测试数据 甘肃成兴信息科技有限公司CA 210 273 1 0";
-	ShExecInfo.lpDirectory = NULL;
-	ShExecInfo.nShow = SW_SHOW;
-	ShExecInfo.hInstApp = NULL;
-
-	BOOL b_ret = ShellExecuteEx(&ShExecInfo);
-	if (b_ret)
-	{
-		//等待调用启动的exe关闭，此处要设置成ShExecInfo.fMask = SEE_MASK_NOCLOSEPROCESS;
-		WaitForSingleObject(ShExecInfo.hProcess, INFINITE);
-		
-		//LoadArgs args(srcFilePath, &win);
-		//LoadDocument(args);
-		//LoadDocument(L"d:\\2.pdf");
-		//MessageBox(NULL, L"pdf签章完成", L"提示", 0);
-	}
-	else
-	{
-		//return 2;
-	}
+	//else
+	//{
+	//	//return 2;
+	//}
 }
+static void OnMouseLeftButtonDown(WindowInfo& win, int x, int y, WPARAM key)
+{
+    //lf("Left button clicked on %d %d", x, y);
+    if (win.IsAboutWindow())
+        // remember a link under so that on mouse up we only activate
+        // link if mouse up is on the same link as mouse down
+        win.url = GetStaticLink(win.staticLinks, x, y);
+    if (!win.IsDocLoaded())
+        return;
+	win.sign = 1;
+	if (win.sign > 0)
+	{
+		win.sign = 0;
+		win.dm->bSign = false;
+		//ClipCursor(&m_oldRect);    // 恢复鼠标
+		//ReleaseCapture();
+		PointI pt(PointI(x, y));
+		int page = win.dm->GetPageNoByPoint(pt);
+		PointD pos(0, 0);
+		pos = win.dm->CvtFromScreen(pt, page);
+		// 找到当前点相对于PDF左上角的坐标
+		int dPosX = (int)pos.x;
+		int dPosY = (int)pos.y;
+		//int x = ptPage.x;
+		//int y = ptPage.y;
+		//(WindowInfo& win, int page, int x, int y, LPCWSTR sourcePdf, LPCWSTR destPdf, LPCWSTR jpg, LPCWSTR owner, LPCWSTR issuer)
+		//C:\\Documents and Settings\\kun\\桌面\\评标报告.pdf  C:\\Documents and Settings\\kun\\桌面\\123.pdf c:\\1.jpg kun I am auth 测试数据 甘肃成兴信息科技有限公司CA 210 273 1 0
+		SignPdf(win, page - 1, dPosX, dPosY, win.loadedFilePath, L"d:\\2.pdf", L"c:\\1.jpg", L"测试数据", L"甘肃成兴信息科技有限公司CA");
+	}
+    if (MA_DRAGGING_RIGHT == win.mouseAction)
+        return;
+
+    if (MA_SCROLLING == win.mouseAction) {
+        win.mouseAction = MA_IDLE;
+        return;
+    }
+    assert(win.mouseAction == MA_IDLE);
+    assert(win.dm);
+
+    SetFocus(win.hwndFrame);
+
+    assert(!win.linkOnLastButtonDown);
+    PageElement *pageEl = win.dm->GetElementAtPos(PointI(x, y));
+    if (pageEl && pageEl->GetType() == Element_Link)
+        win.linkOnLastButtonDown = pageEl;
+    else
+        delete pageEl;
+    win.dragStartPending = true;
+    win.dragStart = PointI(x, y);
+
+    // - without modifiers, clicking on text starts a text selection
+    //   and clicking somewhere else starts a drag
+    // - pressing Shift forces dragging
+    // - pressing Ctrl forces a rectangular selection
+    // - pressing Ctrl+Shift forces text selection
+    // - not having CopySelection permission forces dragging
+    if (!HasPermission(Perm_CopySelection) || ((key & MK_SHIFT) || !win.dm->IsOverText(PointI(x, y))) && !(key & MK_CONTROL))
+        OnDraggingStart(win, x, y);
+    else
+        OnSelectionStart(&win, x, y, key);
+}
+
 static void OnMouseLeftButtonUp(WindowInfo& win, int x, int y, WPARAM key)
 {
     if (win.IsAboutWindow()) {
@@ -2723,7 +2756,7 @@ static void OnMouseRightButtonUp(WindowInfo& win, int x, int y, WPARAM key)
         else
             win.dm->GoToPrevPage(0);
     }
-    /* return from white/black screens in presentation mode */
+    /* return from white/black s00creens in presentation mode */
     else if (PM_BLACK_SCREEN == win.presentation || PM_WHITE_SCREEN == win.presentation)
         win.ChangePresentationMode(PM_ENABLED);
     else
@@ -5177,7 +5210,15 @@ static int TestBigNew()
     return res;
 }
 #endif
-
+static void GetCertData(WindowInfo* win)
+{
+	CertInfo info;
+	info.certName = L"甘肃文锐电子交易网络有限公司";
+	info.certSerial = L"abcdefghi";
+	win->certInfos.push_back(info);
+	win->certSelect.certName = L"";
+	win->certSelect.certSerial = L"";
+}
 static LRESULT FrameOnCommand(WindowInfo *win, HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
     int wmId = LOWORD(wParam);
@@ -5529,8 +5570,9 @@ static LRESULT FrameOnCommand(WindowInfo *win, HWND hwnd, UINT msg, WPARAM wPara
             ToggleFavorites(win);
             break;
 		case IDC_SIGN_PAGE:
-			
-			BeginSign(*win);
+			GetCertData(win);
+			Dialog_CertSelect(win,win->hwndFrame); //选择证书
+			//BeginSign(*win);
 			break;
         default:
             return DefWindowProc(hwnd, msg, wParam, lParam);
@@ -5538,6 +5580,7 @@ static LRESULT FrameOnCommand(WindowInfo *win, HWND hwnd, UINT msg, WPARAM wPara
 
     return 0;
 }
+
 
 
 static LRESULT OnFrameGetMinMaxInfo(MINMAXINFO *info)
@@ -5999,6 +6042,7 @@ static bool SetupPluginMode(CommandLineInfo& i)
     }
     i.reuseInstance = i.exitWhenDone = false;
     gGlobalPrefs->reuseInstance = false;
+	
     // always display the toolbar when embedded (as there's no menubar in that case)
     gGlobalPrefs->showToolbar = true;
     // never allow esc as a shortcut to quit
