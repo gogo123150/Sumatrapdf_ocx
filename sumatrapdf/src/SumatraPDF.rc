@@ -15,127 +15,56 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
+// 中文(简体，中国) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG_SELECT_CERT DIALOGEX 0, 0, 310, 177
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "取消",IDCANCEL,253,156,50,14
+    DEFPUSHBUTTON   "确定",IDOK,199,156,50,14
+    COMBOBOX        IDC_COMBO_CERT,33,32,231,30,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_DIALOG_SELECT_CERT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 303
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 170
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // 中文(简体，中国) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
 // 英语(美国) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 #pragma code_page(1252)
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Version
-//
-
-VS_VERSION_INFO VERSIONINFO
- FILEVERSION 2,4,0,0
- PRODUCTVERSION 2,4,0,0
- FILEFLAGSMASK 0x0L
-#ifdef _DEBUG
- FILEFLAGS 0x1L
-#else
- FILEFLAGS 0x0L
-#endif
- FILEOS 0x40004L
- FILETYPE 0x1L
- FILESUBTYPE 0x0L
-BEGIN
-    BLOCK "StringFileInfo"
-    BEGIN
-        BLOCK "040904E4"
-        BEGIN
-            VALUE "FileDescription", "SumatraPDF"
-            VALUE "FileVersion", "2.4.0.0"
-            VALUE "LegalCopyright", "Copyright 2006-2013 all authors (GPLv3)"
-            VALUE "OriginalFilename", "SumatraPDF.exe"
-            VALUE "ProductName", "SumatraPDF"
-            VALUE "ProductVersion", "2.4.0.0"
-            VALUE "CompanyName", "Krzysztof Kowalczyk"
-        END
-    END
-    BLOCK "VarFileInfo"
-    BEGIN
-        VALUE "Translation", 0x409, 1252
-    END
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Icon
-//
-
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDI_SUMATRAPDF          ICON                    "SumatraPDF-smaller.ico"
-IDI_PDFDOC              ICON                    "PdfDoc.ico"
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Accelerator
-//
-
-IDC_SUMATRAPDF ACCELERATORS
-BEGIN
-    "A",            IDM_SELECT_ALL,         VIRTKEY, CONTROL
-    "C",            IDM_COPY_SELECTION,     VIRTKEY, CONTROL
-    "D",            IDM_PROPERTIES,         VIRTKEY, CONTROL
-    "F",            IDM_FIND_FIRST,         VIRTKEY, CONTROL
-    "G",            IDM_GOTO_PAGE,          VIRTKEY, CONTROL
-    "L",            IDM_VIEW_PRESENTATION_MODE, VIRTKEY, CONTROL
-    "L",            IDM_VIEW_FULLSCREEN,    VIRTKEY, SHIFT, CONTROL
-    "O",            IDM_OPEN,               VIRTKEY, CONTROL
-    "S",            IDM_SAVEAS,             VIRTKEY, CONTROL
-    "S",            IDM_SAVEAS_BOOKMARK,    VIRTKEY, SHIFT, CONTROL
-    "P",            IDM_PRINT,              VIRTKEY, CONTROL
-    "Q",            IDM_EXIT,               VIRTKEY, CONTROL
-    "W",            IDM_CLOSE,              VIRTKEY, CONTROL
-    "Y",            IDM_ZOOM_CUSTOM,        VIRTKEY, CONTROL
-    "0",            IDM_ZOOM_FIT_PAGE,      VIRTKEY, CONTROL
-    VK_NUMPAD0,     IDM_ZOOM_FIT_PAGE,      VIRTKEY, CONTROL
-    "1",            IDM_ZOOM_ACTUAL_SIZE,   VIRTKEY, CONTROL
-    VK_NUMPAD1,     IDM_ZOOM_ACTUAL_SIZE,   VIRTKEY, CONTROL
-    "2",            IDM_ZOOM_FIT_WIDTH,     VIRTKEY, CONTROL
-    VK_NUMPAD2,     IDM_ZOOM_FIT_WIDTH,     VIRTKEY, CONTROL
-    "3",            IDM_ZOOM_FIT_CONTENT,   VIRTKEY, CONTROL
-    VK_NUMPAD3,     IDM_ZOOM_FIT_CONTENT,   VIRTKEY, CONTROL
-    "6",            IDM_VIEW_SINGLE_PAGE,   VIRTKEY, CONTROL
-    VK_NUMPAD6,     IDM_VIEW_SINGLE_PAGE,   VIRTKEY, CONTROL
-    "7",            IDM_VIEW_FACING,        VIRTKEY, CONTROL
-    VK_NUMPAD7,     IDM_VIEW_FACING,        VIRTKEY, CONTROL
-    "8",            IDM_VIEW_BOOK,          VIRTKEY, CONTROL
-    VK_NUMPAD8,     IDM_VIEW_BOOK,          VIRTKEY, CONTROL
-    VK_ADD,         IDT_VIEW_ZOOMIN,        VIRTKEY, CONTROL
-    VK_ADD,         IDM_VIEW_ROTATE_RIGHT,  VIRTKEY, SHIFT, CONTROL
-    VK_OEM_PLUS,    IDT_VIEW_ZOOMIN,        VIRTKEY, CONTROL
-    VK_OEM_PLUS,    IDM_VIEW_ROTATE_RIGHT,  VIRTKEY, SHIFT, CONTROL
-    VK_INSERT,      IDM_COPY_SELECTION,     VIRTKEY, CONTROL
-    VK_F2,          IDM_RENAME_FILE,        VIRTKEY 
-    VK_F3,          IDM_FIND_NEXT,          VIRTKEY 
-    VK_F3,          IDM_FIND_PREV,          VIRTKEY, SHIFT
-    VK_F3,          IDM_FIND_NEXT_SEL,      VIRTKEY, CONTROL
-    VK_F3,          IDM_FIND_PREV_SEL,      VIRTKEY, SHIFT, CONTROL
-    VK_F5,          IDM_VIEW_PRESENTATION_MODE, VIRTKEY 
-    VK_F6,          IDM_MOVE_FRAME_FOCUS,   VIRTKEY 
-    VK_F11,         IDM_VIEW_PRESENTATION_MODE, VIRTKEY 
-    VK_F11,         IDM_VIEW_FULLSCREEN,    VIRTKEY, SHIFT
-    VK_F12,         IDM_VIEW_BOOKMARKS,     VIRTKEY 
-    VK_SUBTRACT,    IDT_VIEW_ZOOMOUT,       VIRTKEY, CONTROL
-    VK_SUBTRACT,    IDM_VIEW_ROTATE_LEFT,   VIRTKEY, SHIFT, CONTROL
-    VK_OEM_MINUS,   IDT_VIEW_ZOOMOUT,       VIRTKEY, CONTROL
-    VK_OEM_MINUS,   IDM_VIEW_ROTATE_LEFT,   VIRTKEY, SHIFT, CONTROL
-    VK_LEFT,        IDM_GOTO_NAV_BACK,      VIRTKEY, ALT
-    VK_RIGHT,       IDM_GOTO_NAV_FORWARD,   VIRTKEY, ALT
-END
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// Bitmap
-//
-
-IDB_TOOLBAR             BITMAP                  "toolbar_11.bmp"
-IDB_RELOADING_CUE       BITMAP                  "reloading.bmp"
-IDB_TOOLBAR2            BITMAP                  "toolbar_12.bmp"
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -288,10 +217,194 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_DIALOG_GOTO_PAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 143
+        TOPMARGIN, 6
+    END
+
+    IDD_DIALOG_FIND, DIALOG
+    BEGIN
+    END
+
+    IDD_DIALOG_PDF_ASSOCIATE, DIALOG
+    BEGIN
+    END
+
+    IDD_DIALOG_GET_PASSWORD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 169
+        TOPMARGIN, 7
+    END
+
+    IDD_DIALOG_CHANGE_LANGUAGE, DIALOG
+    BEGIN
+    END
+
+    IDD_DIALOG_NEW_VERSION, DIALOG
+    BEGIN
+    END
+
+    IDD_DIALOG_SETTINGS, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 157
+    END
+
+    IDD_DIALOG_CUSTOM_ZOOM, DIALOG
+    BEGIN
+    END
+
+    IDD_PROPSHEET_PRINT_ADVANCED, DIALOG
+    BEGIN
+    END
+
+    IDD_DIALOG_FAV_ADD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 229
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 64
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 2,4,0,0
+ PRODUCTVERSION 2,4,0,0
+ FILEFLAGSMASK 0x0L
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904E4"
+        BEGIN
+            VALUE "FileDescription", "SumatraPDF"
+            VALUE "FileVersion", "2.4.0.0"
+            VALUE "LegalCopyright", "Copyright 2006-2013 all authors (GPLv3)"
+            VALUE "OriginalFilename", "SumatraPDF.exe"
+            VALUE "ProductName", "SumatraPDF"
+            VALUE "ProductVersion", "2.4.0.0"
+            VALUE "CompanyName", "Krzysztof Kowalczyk"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1252
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_SUMATRAPDF          ICON                    "SumatraPDF-smaller.ico"
+
+IDI_PDFDOC              ICON                    "PdfDoc.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDC_SUMATRAPDF ACCELERATORS
+BEGIN
+    "A",            IDM_SELECT_ALL,         VIRTKEY, CONTROL
+    "C",            IDM_COPY_SELECTION,     VIRTKEY, CONTROL
+    "D",            IDM_PROPERTIES,         VIRTKEY, CONTROL
+    "F",            IDM_FIND_FIRST,         VIRTKEY, CONTROL
+    "G",            IDM_GOTO_PAGE,          VIRTKEY, CONTROL
+    "L",            IDM_VIEW_PRESENTATION_MODE, VIRTKEY, CONTROL
+    "L",            IDM_VIEW_FULLSCREEN,    VIRTKEY, SHIFT, CONTROL
+    "O",            IDM_OPEN,               VIRTKEY, CONTROL
+    "S",            IDM_SAVEAS,             VIRTKEY, CONTROL
+    "S",            IDM_SAVEAS_BOOKMARK,    VIRTKEY, SHIFT, CONTROL
+    "P",            IDM_PRINT,              VIRTKEY, CONTROL
+    "Q",            IDM_EXIT,               VIRTKEY, CONTROL
+    "W",            IDM_CLOSE,              VIRTKEY, CONTROL
+    "Y",            IDM_ZOOM_CUSTOM,        VIRTKEY, CONTROL
+    "0",            IDM_ZOOM_FIT_PAGE,      VIRTKEY, CONTROL
+    VK_NUMPAD0,     IDM_ZOOM_FIT_PAGE,      VIRTKEY, CONTROL
+    "1",            IDM_ZOOM_ACTUAL_SIZE,   VIRTKEY, CONTROL
+    VK_NUMPAD1,     IDM_ZOOM_ACTUAL_SIZE,   VIRTKEY, CONTROL
+    "2",            IDM_ZOOM_FIT_WIDTH,     VIRTKEY, CONTROL
+    VK_NUMPAD2,     IDM_ZOOM_FIT_WIDTH,     VIRTKEY, CONTROL
+    "3",            IDM_ZOOM_FIT_CONTENT,   VIRTKEY, CONTROL
+    VK_NUMPAD3,     IDM_ZOOM_FIT_CONTENT,   VIRTKEY, CONTROL
+    "6",            IDM_VIEW_SINGLE_PAGE,   VIRTKEY, CONTROL
+    VK_NUMPAD6,     IDM_VIEW_SINGLE_PAGE,   VIRTKEY, CONTROL
+    "7",            IDM_VIEW_FACING,        VIRTKEY, CONTROL
+    VK_NUMPAD7,     IDM_VIEW_FACING,        VIRTKEY, CONTROL
+    "8",            IDM_VIEW_BOOK,          VIRTKEY, CONTROL
+    VK_NUMPAD8,     IDM_VIEW_BOOK,          VIRTKEY, CONTROL
+    VK_ADD,         IDT_VIEW_ZOOMIN,        VIRTKEY, CONTROL
+    VK_ADD,         IDM_VIEW_ROTATE_RIGHT,  VIRTKEY, SHIFT, CONTROL
+    VK_OEM_PLUS,    IDT_VIEW_ZOOMIN,        VIRTKEY, CONTROL
+    VK_OEM_PLUS,    IDM_VIEW_ROTATE_RIGHT,  VIRTKEY, SHIFT, CONTROL
+    VK_INSERT,      IDM_COPY_SELECTION,     VIRTKEY, CONTROL
+    VK_F2,          IDM_RENAME_FILE,        VIRTKEY 
+    VK_F3,          IDM_FIND_NEXT,          VIRTKEY 
+    VK_F3,          IDM_FIND_PREV,          VIRTKEY, SHIFT
+    VK_F3,          IDM_FIND_NEXT_SEL,      VIRTKEY, CONTROL
+    VK_F3,          IDM_FIND_PREV_SEL,      VIRTKEY, SHIFT, CONTROL
+    VK_F5,          IDM_VIEW_PRESENTATION_MODE, VIRTKEY 
+    VK_F6,          IDM_MOVE_FRAME_FOCUS,   VIRTKEY 
+    VK_F11,         IDM_VIEW_PRESENTATION_MODE, VIRTKEY 
+    VK_F11,         IDM_VIEW_FULLSCREEN,    VIRTKEY, SHIFT
+    VK_F12,         IDM_VIEW_BOOKMARKS,     VIRTKEY 
+    VK_SUBTRACT,    IDT_VIEW_ZOOMOUT,       VIRTKEY, CONTROL
+    VK_SUBTRACT,    IDM_VIEW_ROTATE_LEFT,   VIRTKEY, SHIFT, CONTROL
+    VK_OEM_MINUS,   IDT_VIEW_ZOOMOUT,       VIRTKEY, CONTROL
+    VK_OEM_MINUS,   IDM_VIEW_ROTATE_LEFT,   VIRTKEY, SHIFT, CONTROL
+    VK_LEFT,        IDM_GOTO_NAV_BACK,      VIRTKEY, ALT
+    VK_RIGHT,       IDM_GOTO_NAV_FORWARD,   VIRTKEY, ALT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_TOOLBAR             BITMAP                  "toolbar_11.bmp"
+
+IDB_RELOADING_CUE       BITMAP                  "reloading.bmp"
+
+IDB_TOOLBAR2            BITMAP                  "toolbar_12.bmp"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
 // RCDATA
 //
 
 IDD_EBOOK_WIN_DESC      RCDATA                  "EbookWinDesc.txt"
+
 
 #ifdef APSTUDIO_INVOKED
 /////////////////////////////////////////////////////////////////////////////
@@ -323,52 +436,11 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// DESIGNINFO
-//
-
-#ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO
-BEGIN
-    IDD_DIALOG_GOTO_PAGE, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 143
-        TOPMARGIN, 6
-    END
-
-    IDD_DIALOG_GET_PASSWORD, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 169
-        TOPMARGIN, 7
-    END
-
-    IDD_DIALOG_CHANGE_LANGUAGE, DIALOG
-    BEGIN
-    END
-
-    IDD_DIALOG_SETTINGS, DIALOG
-    BEGIN
-        BOTTOMMARGIN, 157
-    END
-
-    IDD_DIALOG_FAV_ADD, DIALOG
-    BEGIN
-        LEFTMARGIN, 7
-        RIGHTMARGIN, 229
-        TOPMARGIN, 7
-        BOTTOMMARGIN, 64
-    END
-END
-#endif    // APSTUDIO_INVOKED
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
 // Cursor
 //
 
 IDC_CURSORDRAG          CURSOR                  "dragcursor.cur"
+
 #endif    // 英语(美国) resources
 /////////////////////////////////////////////////////////////////////////////
 

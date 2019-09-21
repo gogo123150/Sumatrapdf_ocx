@@ -5,6 +5,7 @@
 #define WindowInfo_h
 
 #include "DisplayModel.h"
+#include<vector>
 
 class Synchronizer;
 class DoubleBuffer;
@@ -50,6 +51,10 @@ struct StaticLinkInfo {
     const WCHAR *target;
     const WCHAR *infotip;
 };
+struct CertInfo {
+	LPCWSTR certName;
+	LPCWSTR certSerial;
+};
 
 /* Describes information related to one window with (optional) a document
    on the screen */
@@ -72,7 +77,9 @@ public:
 
     WCHAR *         loadedFilePath;
     DisplayModel *  dm;
-
+	std::vector<CertInfo> certInfos;
+	CertInfo		certSelect;
+	HWND            hCert;
     HWND            hwndFrame;
     HWND            hwndCanvas;
     HWND            hwndToolbar;
@@ -84,6 +91,7 @@ public:
     HWND            hwndPageBox;
     HWND            hwndPageBg;
     HWND            hwndPageTotal;
+	
 
     // state related to table of contents (PDF bookmarks etc.)
     HWND            hwndTocBox;

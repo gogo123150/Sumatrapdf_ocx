@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
-// Microsoft Visual C++ generated include file.
-// Used by SumatraPDF.rc
+// Microsoft Visual C++ 生成的包含文件。
+// 供 SumatraPDF.rc 使用
 //
 #define IDI_SUMATRAPDF                  1
 #define IDI_PDFDOC                      2
@@ -17,6 +17,7 @@
 #define IDD_DIALOG_FAV_ADD              140
 #define IDB_BITMAP1                     141
 #define IDB_TOOLBAR2                    141
+#define IDD_DIALOG_SELECT_CERT          147
 #define IDM_OPEN                        400
 #define IDM_CLOSE                       401
 #define IDM_SAVEAS                      402
@@ -107,6 +108,7 @@
 #define IDM_ADVANCED_OPTIONS            597
 #define IDM_FAV_FIRST                   600
 #define IDM_FAV_LAST                    800
+#define IDC_TOOLBAR2                    900
 #define IDC_GOTO_PAGE_EDIT              1000
 #define IDC_GOTO_PAGE_GO                1001
 #define IDC_BUTTON2                     1002
@@ -118,7 +120,6 @@
 #define IDC_GET_PASSWORD_LABEL          1008
 #define IDC_REMEMBER_PASSWORD           1009
 #define IDC_TOOLBAR                     1010
-#define IDC_TOOLBAR2                     900
 #define IDC_REBAR                       1011
 #define IDC_EDIT1                       1012
 #define IDC_FAV_NAME_EDIT               1013
@@ -156,6 +157,8 @@
 #define IDC_PRINT_SCALE_NONE            1063
 #define IDC_SECTION_PRINT_COMPATIBILITY 1070
 #define IDC_PRINT_AS_IMAGE              1071
+#define IDC_COMBO1                      1084
+#define IDC_COMBO_CERT                  1084
 #define IDC_TOC_BOX                     1100
 #define IDC_TOC_TITLE                   1101
 #define IDC_TOC_CLOSE                   1102
@@ -197,18 +200,18 @@
 #define IDD_SAMPLE_MOBI                 3050
 #define IDD_EBOOK_WIN_DESC              3051
 #define IDC_SUMATRAPDF                  4000
-#define IDC_STATIC                      -1
 #define IDC_SIGN_PAGE                   5000
 #define IDC_SIGN_ALL                    5001
+#define IDC_STATIC                      -1
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NO_MFC                     1
-#define _APS_NEXT_RESOURCE_VALUE        142
+#define _APS_NEXT_RESOURCE_VALUE        148
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1080
+#define _APS_NEXT_CONTROL_VALUE         1085
 #define _APS_NEXT_SYMED_VALUE           110
 #endif
 #endif

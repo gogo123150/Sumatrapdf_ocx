@@ -3,6 +3,7 @@
 
 #ifndef SumatraDialogs_h
 #define SumatraDialogs_h
+#include "WindowInfo.h"
 
 struct GlobalPrefs;
 
@@ -15,6 +16,9 @@ INT_PTR   Dialog_NewVersionAvailable(HWND hwnd, const WCHAR *currentVersion, con
 bool      Dialog_CustomZoom(HWND hwnd, bool forChm, float *currZoomInOut);
 INT_PTR   Dialog_Settings(HWND hwnd, GlobalPrefs *prefs);
 bool      Dialog_AddFavorite(HWND hwnd, const WCHAR *pageNo, ScopedMem<WCHAR>& favName);
+//÷§ È—°‘Ò
+bool Dialog_CertSelect(WindowInfo* win,HWND hwnd);
+
 
 enum PrintRangeAdv { PrintRangeAll = 0, PrintRangeEven, PrintRangeOdd };
 enum PrintScaleAdv { PrintScaleNone = 0, PrintScaleShrink, PrintScaleFit };

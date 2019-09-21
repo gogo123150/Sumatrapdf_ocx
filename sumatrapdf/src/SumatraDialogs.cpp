@@ -11,6 +11,8 @@
 #include "SumatraPDF.h"
 #include "Translations.h"
 #include "WinUtil.h"
+#include<vector>
+#define DROP_DOWN_COMBO     200
 
 // cf. http://msdn.microsoft.com/en-us/library/ms645398(v=VS.85).aspx
 struct DLGTEMPLATEEX {
@@ -594,6 +596,11 @@ struct Dialog_CustomZoom_Data {
     float zoomResult;
     bool  forChm;
 };
+struct Dialog_Cert_Data
+{
+	wchar_t* certName;
+	wchar_t* certSerial;
+};
 
 static INT_PTR CALLBACK Dialog_CustomZoom_Proc(HWND hDlg, UINT msg, WPARAM wParam, LPARAM lParam)
 {
@@ -634,6 +641,156 @@ static INT_PTR CALLBACK Dialog_CustomZoom_Proc(HWND hDlg, UINT msg, WPARAM wPara
         break;
     }
     return FALSE;
+}
+HINSTANCE hgAppInst;
+// 处理证书对话框消息  
+INT_PTR CALLBACK CertDlgProc(HWND hdlg, UINT msg, WPARAM wParam, LPARAM lParam)
+{
+	/* .............. */
+	return (INT_PTR)FALSE;
+}
+HWND hwndButtonCintinue;
+HWND hwndCombox;
+WindowInfo* info;
+//证书对话框
+LRESULT CALLBACK CertWindowProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
+{
+	int wmId;
+	wchar_t szMessage[20] = L"Hello";
+	int i = 0;
+	char iemp[10] = { 0 };
+	std::vector<CertInfo>::iterator it;
+	switch (msg)
+	{
+	case WM_CREATE:
+	{
+		hwndButtonCintinue = CreateWindow(TEXT("button"),//必须为：button    
+			                 TEXT("确定"),//按钮上显示的字符    
+			                 WS_CHILD | WS_VISIBLE,
+			                 250, 60, 50, 25,  //按钮在界面上出现的位置
+			                 hwnd, (HMENU)IDOK,
+			NULL, NULL);
+		hwndCombox= CreateWindow(TEXT("combobox"),//必须为：combobox    
+			NULL,   
+			WS_CHILD | WS_VISIBLE | WS_VSCROLL | CBS_DROPDOWNLIST | CBS_HASSTRINGS,
+			20, 20, 500, 30,  //按钮在界面上出现的位置
+			hwnd, (HMENU)DROP_DOWN_COMBO,NULL, NULL);
+		//下拉框设置值
+		for (it=info->certInfos.begin();it<info->certInfos.end();it++)
+		{
+			CertInfo o = *it;
+			SendMessage(hwndCombox, CB_ADDSTRING, 0, (LPARAM)o.certName);
+		}
+		SendMessage(hwndCombox, CB_SETCURSEL, 0, 0); //设置下拉框默认选项
+	}
+	break;
+	case WM_COMMAND:
+	{
+		wmId = LOWORD(wParam);
+		switch (wmId)
+		{
+		case IDOK:
+			//MessageBox(NULL, L"系统提示", L"hello", 0);
+		{
+			LRESULT nIndex = SendMessage(hwndCombox, CB_GETCURSEL, 0, 0);
+			if (nIndex == CB_ERR)
+			{
+				MessageBox(NULL, L"请选择证书", L"系统提示", MB_OK);
+			}
+			else
+			{
+				info->certSelect = info->certInfos[nIndex];
+				MessageBox(NULL, info->certSelect.certSerial, L"系统提示", MB_OK);
+			}
+		}
+		break;
+		default:
+			break;
+		}
+	}
+	break;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		return 0;
+	default:
+		return DefWindowProc(hwnd, msg, wParam, lParam);
+	}
+	return 0;
+}
+
+
+bool Dialog_CertSelect(WindowInfo* win,HWND hParent)
+{
+	//char* data = "aa";
+	//data.certName = L"";
+	//data.certSerial = L"";
+
+	//HWND hwnd = CreateWindow(
+	//	L"SUMATRA_PDF_PROPERTIES", L"SUMATRA_PDF_PROPERTIES",
+	//	WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU,
+	//	CW_USEDEFAULT, CW_USEDEFAULT,
+	//	CW_USEDEFAULT, CW_USEDEFAULT,
+	//	NULL, NULL,
+	//	ghinst, NULL);
+	//if (!hwnd)
+	//	return false;
+
+	//ToggleWindowStyle(hwnd, WS_EX_LAYOUTRTL | WS_EX_NOINHERITLAYOUT, IsUIRightToLeft(), GWL_EXSTYLE);
+
+	//// get the dimensions required for the about box's content
+	//RectI rc;
+	//PAINTSTRUCT ps;
+	//HDC hdc = BeginPaint(hwnd, &ps);
+	//EndPaint(hwnd, &ps);
+
+	//// resize the new window to just match these dimensions
+	//// (as long as they fit into the current monitor's work area)
+	//WindowRect wRc(hwnd);
+	//ClientRect cRc(hwnd);
+	//RectI work = GetWorkAreaRect(WindowRect(hParent));
+	//wRc.dx = min(rc.dx + wRc.dx - cRc.dx, work.dx);
+	//wRc.dy = min(rc.dy + wRc.dy - cRc.dy, work.dy);
+	//MoveWindow(hwnd, wRc.x, wRc.y, wRc.dx, wRc.dy, FALSE);
+	//CenterDialog(hwnd, hParent);
+
+	//ShowWindow(hwnd, SW_SHOW);
+	//return true;
+	// 创建对话框  
+	//HWND hdlg = CreateDialog(NULL, MAKEINTRESOURCE(IDD_DIALOG_SELECT_CERT), NULL, (DLGPROC)Dialog_CertSelect_Proc);
+	// 显示对话框  
+	//ShowWindow(hdlg, SW_SHOWNA);
+	//DialogBoxParam(NULL, MAKEINTRESOURCE(IDD_DIALOG_SELECT_CERT), NULL, (DLGPROC)Dialog_CertSelect_Proc, (LPARAM)data);
+	//INT_PTR res = CreateDialogBox(IDD_DIALOG_SELECT_CERT, hParent,
+	//	Dialog_CertSelect_Proc, (LPARAM)&data);
+	//if (res == IDCANCEL)
+	//	return false;
+	//return true;
+	
+	// 设计窗口类  
+	info = win;
+	WNDCLASS wc = { };
+	wc.hbrBackground = (HBRUSH)COLOR_WINDOW;
+	wc.lpfnWndProc = (WNDPROC)CertWindowProc;
+	wc.lpszClassName = L"Cert_Select";
+	//wc.hInstance = hThisApp;
+	wc.style = CS_HREDRAW | CS_VREDRAW;
+	RegisterClass(&wc);
+	//hgAppInst = hThisApp;
+	// 创建窗口  
+	HWND hwnd = CreateWindow(L"Cert_Select", L"选择证书",
+		WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME, 200, 25, 550, 140, NULL, NULL, NULL, NULL);
+	if (!hwnd)
+		return 0;
+	ShowWindow(hwnd, SW_SHOWNA);
+	UpdateWindow(hwnd);
+	// 消息循环  
+	MSG msg;
+	while (GetMessage(&msg, NULL, 0, 0))
+	{
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
+	}
+	return 0;
 }
 
 bool Dialog_CustomZoom(HWND hwnd, bool forChm, float *currZoomInOut)
