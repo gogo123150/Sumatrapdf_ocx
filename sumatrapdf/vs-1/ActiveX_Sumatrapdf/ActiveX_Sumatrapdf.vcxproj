@@ -134,6 +134,7 @@
     <None Include="ActiveX_Sumatrapdf.def" />
     <None Include="ActiveX_Sumatrapdf.ico" />
     <None Include="ActiveX_SumatrapdfCtrl.bmp" />
+    <None Include="json\json_valueiterator.inl" />
     <None Include="ReadMe.txt" />
     <None Include="toolbar_12.bmp" />
   </ItemGroup>
@@ -192,6 +193,9 @@
     <ClCompile Include="ActiveX_Sumatrapdf.cpp" />
     <ClCompile Include="ActiveX_SumatrapdfCtrl.cpp" />
     <ClCompile Include="ActiveX_SumatrapdfPropPage.cpp" />
+    <ClCompile Include="json\json_reader.cpp" />
+    <ClCompile Include="json\json_value.cpp" />
+    <ClCompile Include="json\json_writer.cpp" />
     <ClCompile Include="Menu2.cpp" />
     <ClCompile Include="Search2.cpp" />
     <ClCompile Include="Selection2.cpp" />
@@ -255,6 +259,18 @@
     <ClInclude Include="ActiveX_SumatrapdfCtrl.h" />
     <ClInclude Include="ActiveX_SumatrapdfPropPage.h" />
     <ClInclude Include="DisplayModel2.h" />
+    <ClInclude Include="json\allocator.h" />
+    <ClInclude Include="json\assertions.h" />
+    <ClInclude Include="json\autolink.h" />
+    <ClInclude Include="json\config.h" />
+    <ClInclude Include="json\features.h" />
+    <ClInclude Include="json\forwards.h" />
+    <ClInclude Include="json\json.h" />
+    <ClInclude Include="json\json_tool.h" />
+    <ClInclude Include="json\reader.h" />
+    <ClInclude Include="json\value.h" />
+    <ClInclude Include="json\version.h" />
+    <ClInclude Include="json\writer.h" />
     <ClInclude Include="Menu2.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Search2.h" />

@@ -165,5 +165,6 @@ char* encode(const wchar_t* wstr, unsigned int codePage);
 wchar_t* decode(const char* encodedStr, unsigned int codePage);
 int drawSignImage(WindowInfo& win, HDC hdcCanvas, HDC hdc);
 void GetCertData(WindowInfo* win);
+void ExecuteOtherApp(LPCWSTR appName, LPWSTR arguments, LPSTR data, int& dataLen);
 
 #endif

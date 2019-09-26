@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0555 */
-/* at Sat Sep 21 23:03:23 2019
+/* at Thu Sep 26 18:59:44 2019
  */
 /* Compiler settings for ActiveX_Sumatrapdf.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 

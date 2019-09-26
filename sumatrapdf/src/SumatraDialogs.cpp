@@ -656,7 +656,6 @@ WindowInfo* info;
 LRESULT CALLBACK CertWindowProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
 	int wmId;
-	wchar_t szMessage[20] = L"Hello";
 	int i = 0;
 	char iemp[10] = { 0 };
 	std::vector<CertInfo>::iterator it;
@@ -670,12 +669,14 @@ LRESULT CALLBACK CertWindowProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lPara
 			                 250, 60, 50, 25,  //按钮在界面上出现的位置
 			                 hwnd, (HMENU)IDOK,
 			NULL, NULL);
+
 		hwndCombox= CreateWindow(TEXT("combobox"),//必须为：combobox    
 			NULL,   
-			WS_CHILD | WS_VISIBLE | WS_VSCROLL | CBS_DROPDOWNLIST | CBS_HASSTRINGS,
-			20, 20, 500, 30,  //按钮在界面上出现的位置
+			CBS_DROPDOWNLIST | WS_CHILD | WS_VISIBLE | WS_VSCROLL,
+			20, 20, 500, 300,  //x,y，width,height,注意高度
 			hwnd, (HMENU)DROP_DOWN_COMBO,NULL, NULL);
 		//下拉框设置值
+		SendMessage(hwndCombox, CB_RESETCONTENT, 0, 0);
 		for (it=info->certInfos.begin();it<info->certInfos.end();it++)
 		{
 			CertInfo o = *it;
@@ -701,6 +702,7 @@ LRESULT CALLBACK CertWindowProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lPara
 			{
 				info->certSelect = info->certInfos[nIndex];
 				MessageBox(NULL, info->certSelect.certSerial, L"系统提示", MB_OK);
+
 			}
 		}
 		break;
@@ -710,6 +712,7 @@ LRESULT CALLBACK CertWindowProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lPara
 	}
 	break;
 	case WM_DESTROY:
+		SendMessage(hwndCombox, CB_RESETCONTENT, 0, 0);//清空下拉框
 		PostQuitMessage(0);
 		return 0;
 	default:
@@ -778,7 +781,7 @@ bool Dialog_CertSelect(WindowInfo* win,HWND hParent)
 	//hgAppInst = hThisApp;
 	// 创建窗口  
 	HWND hwnd = CreateWindow(L"Cert_Select", L"选择证书",
-		WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME, 200, 25, 550, 140, NULL, NULL, NULL, NULL);
+		WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME, win->canvasRc.dx -600, 200, 550, 140, NULL, NULL, NULL, NULL);
 	if (!hwnd)
 		return 0;
 	ShowWindow(hwnd, SW_SHOWNA);
